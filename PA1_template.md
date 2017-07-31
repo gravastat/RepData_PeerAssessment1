@@ -253,13 +253,13 @@ Now with filling in the missing data, we have the **mean steps per day is 10821*
 
 There median is slightly higher, but the means are not very different at all.
 
+If we plot the original data set as points, then draw a line of the imputed dataset, we can see there is not that much of a difference.
 
 ```r
 (g3b <- ggplot(NULL,aes(date,steps)) + geom_point(data=stepsPerDay,color="blue") + geom_line(data=stepsPerDay4imp))
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-1-1.png)<!-- -->
-
 
 
 ## Are there differences in activity patterns between weekdays and weekends?
