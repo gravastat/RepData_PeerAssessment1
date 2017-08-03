@@ -106,7 +106,7 @@ head(stepsPerDay)
 With ggplot2 we'll make a histogram from the total number of steps per day.  The binwidth has been set to 1200.
 
 ```r
-ggplot(data=stepsPerDay, aes(stepsPerDay$steps)) + geom_histogram(binwidth=1200)
+ggplot(data=stepsPerDay, aes(stepsPerDay$steps)) + geom_histogram(binwidth=1200) + labs(x="Number of Steps Taken Per Day",y="Frequency") + ggtitle("Frequency of the Number of Steps Taken Per Day") + theme(plot.title = element_text(hjust = 0.5))
 ```
 
 ![](PA1_template_files/figure-html/q1plot-1.png)<!-- -->
@@ -222,7 +222,7 @@ stepsPerDay4imp <- aggregate(steps ~ date,activity4impDT %>% select(date,steps),
 Then we create our histogram using ggplot2.
 
 ```r
-ggplot(data=stepsPerDay4imp, aes(stepsPerDay4imp$steps)) + geom_histogram(binwidth=1200)
+ggplot(data=stepsPerDay4imp, aes(stepsPerDay4imp$steps)) + geom_histogram(binwidth=1200) + labs(x="Number of Steps Taken Per Day",y="Frequency") + ggtitle("Frequency of the Number of Steps Taken Per Day") + theme(plot.title = element_text(hjust = 0.5))
 ```
 
 ![](PA1_template_files/figure-html/q3plot-1.png)<!-- -->

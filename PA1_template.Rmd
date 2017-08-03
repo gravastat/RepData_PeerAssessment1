@@ -81,7 +81,7 @@ head(stepsPerDay)
 
 With ggplot2 we'll make a histogram from the total number of steps per day.  The binwidth has been set to 1200.
 ```{r q1plot}
-ggplot(data=stepsPerDay, aes(stepsPerDay$steps)) + geom_histogram(binwidth=1200)
+ggplot(data=stepsPerDay, aes(stepsPerDay$steps)) + geom_histogram(binwidth=1200) + labs(x="Number of Steps Taken Per Day",y="Frequency") + ggtitle("Frequency of the Number of Steps Taken Per Day") + theme(plot.title = element_text(hjust = 0.5))
 ```
 
 We can see the mean and median steps from a simple summary.
@@ -157,7 +157,7 @@ stepsPerDay4imp <- aggregate(steps ~ date,activity4impDT %>% select(date,steps),
 
 Then we create our histogram using ggplot2.
 ```{r q3plot}
-ggplot(data=stepsPerDay4imp, aes(stepsPerDay4imp$steps)) + geom_histogram(binwidth=1200)
+ggplot(data=stepsPerDay4imp, aes(stepsPerDay4imp$steps)) + geom_histogram(binwidth=1200) + labs(x="Number of Steps Taken Per Day",y="Frequency") + ggtitle("Frequency of the Number of Steps Taken Per Day") + theme(plot.title = element_text(hjust = 0.5))
 ```
 
 Let's calculate the mean and median total number of steps per day for our new dataset as well
