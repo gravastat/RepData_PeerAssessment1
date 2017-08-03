@@ -103,12 +103,10 @@ head(stepsPerDay)
 ## 6 2012-10-07 11015
 ```
 
-With ggplot2 we'll make a histogram of the total number of steps per day.  You can see data is missing for some days.  Days of the week are displayed in different colors.
+With ggplot2 we'll make a histogram from the total number of steps per day.  The binwidth has been set to 1200.
 
 ```r
-g1 <- ggplot(stepsPerDay,aes(date,steps))
-
-g1 + geom_col(aes(fill=wday(stepsPerDay$date,label=TRUE))) + 	labs(x="Date",y="Steps",color="Week Day") + ggtitle("Steps Per Day") + theme(plot.title = element_text(hjust = 0.5)) + theme(axis.text.x=element_text(angle=90)) + scale_x_date(date_breaks= "1 day",expand=c(0,0)) + theme(legend.title=element_blank())
+ggplot(data=stepsPerDay, aes(stepsPerDay$steps)) + geom_histogram(binwidth=1200)
 ```
 
 ![](PA1_template_files/figure-html/q1plot-1.png)<!-- -->
@@ -224,9 +222,7 @@ stepsPerDay4imp <- aggregate(steps ~ date,activity4impDT %>% select(date,steps),
 Then we create our histogram using ggplot2.
 
 ```r
-g3 <- ggplot(stepsPerDay4imp,aes(date,steps))
-
-g3 + geom_col(aes(fill=wday(stepsPerDay4imp$date,label=TRUE))) + 	labs(x="Date",y="Steps",color="Week Day") + ggtitle("Steps Per Day Imputed Dataset") + theme(plot.title = element_text(hjust = 0.5)) + theme(axis.text.x=element_text(angle=90)) + scale_x_date(date_breaks= "1 day",expand=c(0,0)) + theme(legend.title=element_blank())
+ggplot(data=stepsPerDay4imp, aes(stepsPerDay4imp$steps)) + geom_histogram(binwidth=1200)
 ```
 
 ![](PA1_template_files/figure-html/q3plot-1.png)<!-- -->
